@@ -1,0 +1,26 @@
+# Core dependencies (required for the GUI and MuJoCo simulation/visualization)
+PyQt5>=5.15
+numpy>=1.24
+mujoco>=3.3
+
+# Motion-capture teleoperation and trainable gesture recognition
+# (imported lazily -- the app runs without these, but the Motion Capture
+#  and AI Gesture tabs will report the corresponding feature as unavailable)
+opencv-python>=4.8
+# Pinned: hand tracking uses mediapipe.solutions.hands, which mediapipe 1.x
+# no longer ships.
+mediapipe==0.10.14
+# mediapipe imports matplotlib. Ubuntu's packaged matplotlib is built against
+# NumPy 1.x and crashes on import once pip has installed NumPy 2.x, so a
+# NumPy-2-compatible release is required explicitly.
+matplotlib>=3.9
+scikit-learn>=1.3
+joblib>=1.3
+
+# Optional extras used by specific tabs / fallback renderers.
+# The app detects these at startup and disables the corresponding
+# feature gracefully
+PyOpenGL>=3.1
+PyOpenGL_accelerate>=3.1
+pyqtgraph>=0.13
+trimesh>=4.0

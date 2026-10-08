@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<!-- Inspire Hand RH56DFTP RIGHT — Improved MJCF
+     Generated from urdf_right_with_force_sensor.urdf
+     DOF convention: 1000=Open(joint@0), 0=Closed(joint@max)
+     Meshes: place all STL files in meshes/ subfolder
+-->
+<mujoco model="inspire_hand_right">
+
+  <compiler angle="radian" meshdir="meshes" eulerseq="XYZ"/>
+
+  <option gravity="0 0 -9.81" timestep="0.001" iterations="50" solver="Newton"/>
+
+  <visual>
+    <headlight ambient="0.4 0.4 0.4" diffuse="0.6 0.6 0.6" specular="0.2 0.2 0.2"/>
+    <rgba haze="0.05 0.05 0.08 1"/>
+    <quality shadowsize="2048"/>
+    <map shadowclip="0.1" shadowscale="0.5"/>
+    <global offwidth="2560" offheight="1920"/>
+
+  </visual>
+
+  <default>
+    <joint damping="0.05" armature="0.001" frictionloss="0.01"/>
+    <position kp="20" kv="2" forcelimited="true" forcerange="-5 5"/>
+  </default>
+
+  <asset>
+    <texture name="sky" type="skybox" builtin="gradient" rgb1="0.10 0.12 0.16"
+              rgb2="0.02 0.02 0.04" width="256" height="256"/>
+    <mesh name="base_link_mesh" file="right_base_link.STL"/>
+    <mesh name="index_force_sensor_pad_mesh" file="index_force_sensor_pad.STL"/>
+    <mesh name="index_force_sensor_nail_mesh" file="index_force_sensor_nail.STL"/>
+    <mesh name="index_force_sensor_tip_mesh" file="index_force_sensor_tip.STL"/>
+    <mesh name="pinky_force_sensor_pad_mesh" file="pinky_force_sensor_pad.STL"/>
+    <mesh name="pinky_force_sensor_nail_mesh" file="pinky_force_sensor_nail.STL"/>
+    <mesh name="pinky_force_sensor_tip_mesh" file="pinky_force_sensor_tip.STL"/>
+    <mesh name="middle_force_sensor_pad_mesh" file="middle_force_sensor_pad.STL"/>
+    <mesh name="middle_force_sensor_nail_mesh" file="middle_force_sensor_nail.STL"/>
+    <mesh name="middle_force_sensor_tip_mesh" file="middle_force_sensor_tip.STL"/>
+    <mesh name="palm_force_sensor_mesh" file="palm_force_sensor.STL"/>
+    <mesh name="right_index_prox_mesh" file="right_index_prox.STL"/>
+    <mesh name="right_index_dist_mesh" file="right_index_dist.STL"/>
+    <mesh name="right_pinky_prox_mesh" file="right_pinky_prox.STL"/>
+    <mesh name="right_pinky_dist_mesh" file="right_pinky_dist.STL"/>
+    <mesh name="right_middle_prox_mesh" file="right_middle_prox.STL"/>
+    <mesh name="right_middle_dist_mesh" file="right_middle_dist.STL"/>
+    <mesh name="right_ring_prox_mesh" file="right_ring_prox.STL"/>
+    <mesh name="right_ring_dist_mesh" file="right_ring_dist.STL"/>
+    <mesh name="right_thumb_base_mesh" file="right_thumb_base.STL"/>
+    <mesh name="right_thumb_prox_mesh" file="right_thumb_prox.STL"/>
+    <mesh name="right_thumb_mid_mesh" file="right_thumb_mid.STL"/>
+    <mesh name="right_thumb_dist_mesh" file="right_thumb_dist.STL"/>
+    <mesh name="ring_force_sensor_pad_mesh" file="ring_force_sensor_pad.STL"/>
+    <mesh name="ring_force_sensor_nail_mesh" file="ring_force_sensor_nail.STL"/>
+    <mesh name="ring_force_sensor_tip_mesh" file="ring_force_sensor_tip.STL"/>
+    <mesh name="thumb_force_sensor_pad_mesh" file="thumb_force_sensor_pad.STL"/>
+    <mesh name="thumb_force_sensor_mid_mesh" file="thumb_force_sensor_mid.STL"/>
+    <mesh name="thumb_force_sensor_nail_mesh" file="thumb_force_sensor_nail.STL"/>
+    <mesh name="thumb_force_sensor_tip_mesh" file="thumb_force_sensor_tip.STL"/>
+    <!-- Sky and ground -->
+    <texture name="grid" type="2d" builtin="checker" rgb1="0.08 0.10 0.14"
+             rgb2="0.12 0.14 0.20" width="512" height="512"/>
+    <material name="grid_mat" texture="grid" texrepeat="4 4" reflectance="0.1"/>
+  </asset>
+
+  <worldbody>
+    <!-- Fixed mounting point -->
+    <body name="base_link" pos="0 0 0">
+      <geom type="mesh" mesh="base_link_mesh" rgba="0.8 0.8 0.8 1"
+            contype="2" conaffinity="2"/>
+      <inertial pos="0 0 0" mass="0.3" diaginertia="1e-4 1e-4 1e-4"/>
+    <body name="palm_force_sensor" pos="-0.00036819 0.01229600 0.11960000" quat="-0.00000260 -0.00000260 -0.70710808 -0.70710548">
+      <geom type="mesh" mesh="palm_force_sensor_mesh" rgba="0.8 0.8 0.8 1" contype="0" conaffinity="0"/>
+    </body>
+    <body name="right_thumb_base" pos="-0.02690000 0.02101000 0.06890000" quat="1.00000000 0.00000000 0.00000000 0.00000000">
+      <joint name="right_thumb_base_joint" type="hinge" axis="0 0 -1" range="0 1.35" damping="0.05" armature="0.001"/>
+      <geom type="mesh" mesh="right_thumb_base_mesh" rgba="0.70 0.48 0.85 1" contype="2" conaffinity="2"/>
+      <body name="right_thumb_prox" pos="-0.00792520 0.00905990 0.00520000" quat="0.09229343 0.09229376 0.70105898 0.70105641">
+        <joint name="right_thumb_prox_joint" type="hinge" axis="0 0 1" range="0 0.39" damping="0.05" armature="0.001"/>
+        <geom type="mesh" mesh="right_thumb_prox_mesh" rgba="0.70 0.48 0.85 1" contype="2" conaffinity="2"/>
+        <body name="right_thumb_mid" pos="0.03140300 0.02106900 0.00095000" quat="1.00000000 0.00000000 0.00000000 0.00000000">
+          <joint name="right_thumb_mid_joint" type="hinge" axis="0 0 1" range="0 0.65" damping="0.05" armature="0.001"/>
+          <geom type="mesh" mesh="right_thumb_mid_mesh" rgba="0.70 0.48 0.85 1" contype="2" conaffinity="2"/>
+          <body name="thumb_force_sensor_mid" pos="0.01177100 0.01699000 -0.00775140" quat="-0.56260058 0.42817336 0.56276731 0.42830026">
+            <geom type="mesh" mesh="thumb_force_sensor_mid_mesh" rgba="0.70 0.48 0.85 1" contype="0" conaffinity="0"/>
+          </body>
+          <body name="right_thumb_dist" pos="0.02190300 0.01281600 -0.00030000" quat="1.00000000 0.00000000 0.00000000 0.00000000">
+            <joint name="right_thumb_dist_joint" type="hinge" axis="0 0 1" range="0 0.52" damping="0.05" armature="0.001"/>
+            <geom type="mesh" mesh="right_thumb_dist_mesh" rgba="0.70 0.48 0.85 1" contype="2" conaffinity="2"/>
+            <body name="thumb_force_sensor_nail" pos="0.01459800 0.01472000 -0.00731030" quat="0.61565838 -0.34779809 -0.61566085 -0.34779731">
+              <geom type="mesh" mesh="thumb_force_sensor_nail_mesh" rgba="0.70 0.48 0.85 1" contype="0" conaffinity="0"/>
+            </body>
+            <body name="thumb_force_sensor_tip" pos="0.02898700 0.01730100 -0.00735120" quat="0.60914808 -0.35908259 0.60914653 0.35908051">
+              <geom type="mesh" mesh="thumb_force_sensor_tip_mesh" rgba="0.70 0.48 0.85 1" contype="0" conaffinity="0"/>
+            </body>
+          </body>
+        </body>
+        <body name="thumb_force_sensor_pad" pos="0.00871210 0.02630500 -0.00671150" quat="0.57932667 -0.40543666 -0.57932815 -0.40543879">
+          <geom type="mesh" mesh="thumb_force_sensor_pad_mesh" rgba="0.70 0.48 0.85 1" contype="0" conaffinity="0"/>
+        </body>
+      </body>
+    </body>
+    <body name="right_index_prox" pos="-0.03867900 0.00056467 0.15640000" quat="0.49119748 0.50864840 -0.50865027 -0.49119929">
+      <joint name="right_index_prox_joint" type="hinge" axis="0 0 1" range="0 1.4381" damping="0.05" armature="0.001"/>
+      <geom type="mesh" mesh="right_index_prox_mesh" rgba="0.60 0.93 0.60 1" contype="2" conaffinity="2"/>
+      <body name="right_index_dist" pos="-0.00342590 0.03259600 -0.00055000" quat="1.00000000 0.00000000 0.00000000 0.00000000">
+        <joint name="right_index_dist_joint" type="hinge" axis="0 0 1" range="0 1.5708" damping="0.05" armature="0.001"/>
+        <geom type="mesh" mesh="right_index_dist_mesh" rgba="0.60 0.93 0.60 1" contype="2" conaffinity="2"/>
+        <body name="index_force_sensor_nail" pos="-0.00816550 0.03744600 -0.00607950" quat="0.69398508 0.10975830 -0.69853646 0.13558996">
+          <geom type="mesh" mesh="index_force_sensor_nail_mesh" rgba="0.60 0.93 0.60 1" contype="0" conaffinity="0"/>
+        </body>
+        <body name="index_force_sensor_tip" pos="-0.00862370 0.05257200 -0.00609540" quat="0.66976963 -0.25702741 -0.65873894 -0.22673457">
+          <geom type="mesh" mesh="index_force_sensor_tip_mesh" rgba="0.60 0.93 0.60 1" contype="0" conaffinity="0"/>
+        </body>
+      </body>
+      <body name="index_force_sensor_pad" pos="-0.01204600 0.01964900 -0.00665100" quat="0.70435803 -0.08738526 -0.70168646 -0.06228728">
+        <geom type="mesh" mesh="index_force_sensor_pad_mesh" rgba="0.60 0.93 0.60 1" contype="0" conaffinity="0"/>
+      </body>
+    </body>
+    <body name="right_middle_prox" pos="-0.01710000 0.00056467 0.15700000" quat="0.49999816 0.50000000 -0.50000184 -0.50000000">
+      <joint name="right_middle_prox_joint" type="hinge" axis="0 0 1" range="0 1.4381" damping="0.05" armature="0.001"/>
+      <geom type="mesh" mesh="right_middle_prox_mesh" rgba="0.95 0.85 0.28 1" contype="2" conaffinity="2"/>
+      <body name="right_middle_dist" pos="-0.00342590 0.03259600 -0.00055000" quat="1.00000000 0.00000000 0.00000000 0.00000000">
+        <joint name="right_middle_dist_joint" type="hinge" axis="0 0 1" range="0 1.5708" damping="0.05" armature="0.001"/>
+        <geom type="mesh" mesh="right_middle_dist_mesh" rgba="0.95 0.85 0.28 1" contype="2" conaffinity="2"/>
+        <body name="middle_force_sensor_nail" pos="-0.00908590 0.04096300 -0.00610030" quat="-0.69500849 -0.13024802 0.69500629 -0.13024939">
+          <geom type="mesh" mesh="middle_force_sensor_nail_mesh" rgba="0.95 0.85 0.28 1" contype="0" conaffinity="0"/>
+        </body>
+        <body name="middle_force_sensor_tip" pos="-0.00982940 0.05605100 -0.00610060" quat="-0.66710145 0.23447279 0.66709900 0.23447193">
+          <geom type="mesh" mesh="middle_force_sensor_tip_mesh" rgba="0.95 0.85 0.28 1" contype="0" conaffinity="0"/>
+        </body>
+      </body>
+      <body name="middle_force_sensor_pad" pos="-0.01204600 0.01964900 -0.00665100" quat="-0.70307597 0.07540565 0.70307339 0.07540537">
+        <geom type="mesh" mesh="middle_force_sensor_pad_mesh" rgba="0.95 0.85 0.28 1" contype="0" conaffinity="0"/>
+      </body>
+    </body>
+    <body name="right_ring_prox" pos="0.00453020 0.00056467 0.15683000" quat="0.51292507 0.48672995 -0.48673173 -0.51292695">
+      <joint name="right_ring_prox_joint" type="hinge" axis="0 0 1" range="0 1.4381" damping="0.05" armature="0.001"/>
+      <geom type="mesh" mesh="right_ring_prox_mesh" rgba="0.95 0.68 0.28 1" contype="2" conaffinity="2"/>
+      <body name="right_ring_dist" pos="-0.00342590 0.03259600 -0.00055000" quat="1.00000000 0.00000000 0.00000000 0.00000000">
+        <joint name="right_ring_dist_joint" type="hinge" axis="0 0 1" range="0 1.5708" damping="0.05" armature="0.001"/>
+        <geom type="mesh" mesh="right_ring_dist_mesh" rgba="0.95 0.68 0.28 1" contype="2" conaffinity="2"/>
+        <body name="ring_force_sensor_nail" pos="-0.00816549 0.03744576 -0.00607949" quat="0.69952924 0.14203032 -0.69269574 0.10324166">
+          <geom type="mesh" mesh="ring_force_sensor_nail_mesh" rgba="0.95 0.68 0.28 1" contype="0" conaffinity="0"/>
+        </body>
+        <body name="ring_force_sensor_tip" pos="-0.00862373 0.05257193 -0.00609539" quat="0.65577544 -0.21910925 -0.67230286 -0.26449684">
+          <geom type="mesh" mesh="ring_force_sensor_tip_mesh" rgba="0.95 0.68 0.28 1" contype="0" conaffinity="0"/>
+        </body>
+      </body>
+      <body name="ring_force_sensor_pad" pos="-0.01204616 0.01964855 -0.00665098" quat="0.70087857 -0.05599036 -0.70488657 -0.09364414">
+        <geom type="mesh" mesh="ring_force_sensor_pad_mesh" rgba="0.95 0.68 0.28 1" contype="0" conaffinity="0"/>
+      </body>
+    </body>
+    <body name="right_pinky_prox" pos="0.02591600 0.00056467 0.15365000" quat="0.52547624 0.47315208 -0.47315381 -0.52547817">
+      <joint name="right_pinky_prox_joint" type="hinge" axis="0 0 1" range="0 1.4381" damping="0.05" armature="0.001"/>
+      <geom type="mesh" mesh="right_pinky_prox_mesh" rgba="0.95 0.42 0.42 1" contype="2" conaffinity="2"/>
+      <body name="right_pinky_dist" pos="-0.00342590 0.03259600 -0.00055000" quat="1.00000000 0.00000000 0.00000000 0.00000000">
+        <joint name="right_pinky_dist_joint" type="hinge" axis="0 0 1" range="0 1.5708" damping="0.05" armature="0.001"/>
+        <geom type="mesh" mesh="right_pinky_dist_mesh" rgba="0.95 0.42 0.42 1" contype="2" conaffinity="2"/>
+        <body name="pinky_force_sensor_nail" pos="-0.00645124 0.02768335 -0.00611719" quat="0.70240344 0.15879742 -0.68904527 0.08142116">
+          <geom type="mesh" mesh="pinky_force_sensor_nail_mesh" rgba="0.95 0.42 0.42 1" contype="0" conaffinity="0"/>
+        </body>
+        <body name="pinky_force_sensor_tip" pos="-0.00639723 0.04270692 -0.00611537" quat="0.64529640 -0.19817031 -0.67876986 -0.28912377">
+          <geom type="mesh" mesh="pinky_force_sensor_tip_mesh" rgba="0.95 0.42 0.42 1" contype="0" conaffinity="0"/>
+        </body>
+      </body>
+      <body name="pinky_force_sensor_pad" pos="-0.01204616 0.01964855 -0.00665098" quat="0.69812067 -0.03710129 -0.70613277 -0.11237231">
+        <geom type="mesh" mesh="pinky_force_sensor_pad_mesh" rgba="0.95 0.42 0.42 1" contype="0" conaffinity="0"/>
+      </body>
+    </body>
+    </body>
+
+    <!-- Ground plane for reference -->
+    <geom name="floor" type="plane" size="0.4 0.4 0.01"
+          material="grid_mat" pos="0 0 -0.05" contype="0" conaffinity="0"/>
+  </worldbody>
+
+  <contact>
+    <exclude body1="base_link" body2="right_thumb_base"/>
+    <exclude body1="right_thumb_base" body2="right_thumb_prox"/>
+    <exclude body1="right_thumb_prox" body2="right_thumb_mid"/>
+    <exclude body1="right_thumb_mid" body2="right_thumb_dist"/>
+    <exclude body1="base_link" body2="right_index_prox"/>
+    <exclude body1="right_index_prox" body2="right_index_dist"/>
+    <exclude body1="base_link" body2="right_middle_prox"/>
+    <exclude body1="right_middle_prox" body2="right_middle_dist"/>
+    <exclude body1="base_link" body2="right_ring_prox"/>
+    <exclude body1="right_ring_prox" body2="right_ring_dist"/>
+    <exclude body1="base_link" body2="right_pinky_prox"/>
+    <exclude body1="right_pinky_prox" body2="right_pinky_dist"/>
+  </contact>
+
+  <!-- 6 DOF actuators -->
+  <actuator>
+    <position name="act_dof0" joint="right_pinky_prox_joint" kp="20" kv="2" forcelimited="true" forcerange="-5 5"/>
+    <position name="act_dof1" joint="right_ring_prox_joint" kp="20" kv="2" forcelimited="true" forcerange="-5 5"/>
+    <position name="act_dof2" joint="right_middle_prox_joint" kp="20" kv="2" forcelimited="true" forcerange="-5 5"/>
+    <position name="act_dof3" joint="right_index_prox_joint" kp="20" kv="2" forcelimited="true" forcerange="-5 5"/>
+    <position name="act_dof4" joint="right_thumb_mid_joint" kp="20" kv="2" forcelimited="true" forcerange="-5 5"/>
+    <position name="act_dof5" joint="right_thumb_base_joint" kp="20" kv="2" forcelimited="true" forcerange="-5 5"/>
+  </actuator>
+
+  <equality>
+    <joint name="couple_pinky" joint1="right_pinky_dist_joint" joint2="right_pinky_prox_joint" polycoef="0 1.0923 0 0 0"/>
+    <joint name="couple_ring" joint1="right_ring_dist_joint" joint2="right_ring_prox_joint" polycoef="0 1.0923 0 0 0"/>
+    <joint name="couple_middle" joint1="right_middle_dist_joint" joint2="right_middle_prox_joint" polycoef="0 1.0923 0 0 0"/>
+    <joint name="couple_index" joint1="right_index_dist_joint" joint2="right_index_prox_joint" polycoef="0 1.0923 0 0 0"/>
+    <!-- Thumb sub-joint coupling -->
+    <joint name="thumb_23" joint1="right_thumb_prox_joint" joint2="right_thumb_mid_joint"
+           polycoef="0 0.6 0 0 0"/>
+    <joint name="thumb_34" joint1="right_thumb_dist_joint" joint2="right_thumb_mid_joint"
+           polycoef="0 0.8 0 0 0"/>
+  </equality>
+
+  <!-- Default camera: viewing from front-top-side -->
+  <keyframe>
+    <key name="home" qpos="0 0 0 0 0 0 0 0 0 0 0 0"/>
+  </keyframe>
+
+</mujoco>

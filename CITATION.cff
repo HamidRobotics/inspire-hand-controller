@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below, and/or the accompanying SoftwareX paper once published."
+title: "Dexterous Hand Controller"
+type: software
+version: 4.0.0
+license: GPL-3.0-or-later
+repository-code: "https://github.com/HamidRobotics/inspire-hand-controller"
+authors:
+  - family-names: "Saadati"
+    given-names: "Hamid Reza"
+    affiliation: "University of Duisburg-Essen; Aalen University"
+    email: "hamid.saadati@stud.uni-due.de"
+    orcid: "https://orcid.org/0009-0004-7550-3400"
+  - family-names: "Kowalczyk"
+    given-names: "Wojciech"
+    affiliation: "University of Duisburg-Essen"
+    email: "wojciech.kowalczyk@uni-due.de"
+    orcid: "https://orcid.org/0000-0002-7390-2836"
+  - family-names: "Feldmann"
+    given-names: "Sebastian"
+    affiliation: "Aalen University"
+    email: "Sebastian.Feldmann@hs-aalen.de"
+    orcid: "https://orcid.org/0000-0001-6054-7292"

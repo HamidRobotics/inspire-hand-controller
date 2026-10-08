@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+build/
+dist/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Backups made while editing
+*.bak
+*.orig
+
+# Per-user runtime & calibration data (device-specific, not source code)
+#calibration_range.json
+#calibration_gestures.json
+#gesture_samples.json
+#gesture_model.pkl
+
+# Qt / app settings written at runtime
+*.ini
+
+# LaTeX build artifacts
+Paper_Dexterous Hand Controller/*.aux
+Paper_Dexterous Hand Controller/*.log
+Paper_Dexterous Hand Controller/*.out
+Paper_Dexterous Hand Controller/*.bbl
+Paper_Dexterous Hand Controller/*.blg
+Paper_Dexterous Hand Controller/*.spl
+Paper_Dexterous Hand Controller/*.synctex.gz
+Paper_Dexterous Hand Controller/*.fdb_latexmk
+Paper_Dexterous Hand Controller/*.fls
+Paper_Dexterous Hand Controller
+
+# Compressed files
+*.zip
+*.tar
+*.rar
+*.gz
+*.tgz
+
+# Videos
+#docs/videos/*.mp4
+docs/videos/*.mov
+docs/videos/*.avi
